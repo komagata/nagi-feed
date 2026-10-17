@@ -1,0 +1,16 @@
+{
+  "name": "nagi-feed",
+  "version": "0.2.8",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test --test-isolation=none tests/*.test.js",
+    "build": "node scripts/build.js",
+    "test:browser": "node tests/nagi-browser.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "esbuild": "^0.25.0",
+    "linkedom": "^0.18.13"
+  }
+}

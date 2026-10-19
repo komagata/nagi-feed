@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128">
+ <title>Nagi Feed: calm waves and a check</title>
+ <g transform="translate(64 64) scale(0.8571428571428571) translate(-64 -64)">
+ <rect x="8" y="8" width="112" height="112" rx="30" fill="#203d2b"/>
+ <path d="M29 57c12-13 23 13 35 0s23 13 35 0M29 78c12-13 23 13 35 0s23 13 35 0" fill="none" stroke="#b7d8c1" stroke-width="7" stroke-linecap="round"/>
+ <path d="m48 34 10 10 21-21" fill="none" stroke="#f0f6f1" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+ </g>
+</svg>

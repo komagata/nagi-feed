@@ -6,7 +6,8 @@
   "scripts": {
     "test": "node --test --test-isolation=none tests/*.test.js",
     "build": "node scripts/build.js",
-    "test:browser": "node tests/nagi-browser.js"
+    "test:browser": "node tests/nagi-browser.js",
+    "store:assets": "node scripts/store-assets.js"
   },
   "devDependencies": {
     "@playwright/test": "^1.55.0",

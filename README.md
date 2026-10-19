@@ -31,3 +31,11 @@ Only post text, quoted text, and enabled text rules are sent to TypeSafe AI / Je
 - `python3 scripts/package.py`: distribution ZIP files
 
 The interface, default rules, and system messages are in English. User-written rules keep their original language. Unedited defaults from older Japanese versions are migrated to English. Internal recognition of Japanese X labels remains supported.
+
+## Chrome Web Store preparation
+
+The [submission packet](store/SUBMISSION.md) contains the English listing, permission/data disclosures, private reviewer-key checklist, ZIP path, and isolated screenshot-generation instructions. It is prepared for an initial store listing; submission and approval are pending. The public source repository is [komagata/nagi-feed](https://github.com/komagata/nagi-feed).
+
+Read the [privacy policy](PRIVACY.md) for local storage, direct TypeSafe transmission, deletion, and optional X feedback details. Text analysis requires your Jev account/API key and provider usage charges; official X ad-label filtering works without a key. Automatic “Not interested” for confirmed non-ad Home matches is enabled by default and can be disabled in settings.
+
+Generate store images only inside omabox with `npm run store:assets -- /home/sbx/nagi-store-assets`; see the packet for the fake-HOME output/copy-back procedure. Source SVGs and reviewable PNGs live in `assets/icons` and `store/assets`.

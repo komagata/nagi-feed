@@ -7,3 +7,10 @@ test('credentials are collapsed, masked and not supplied as saved field values',
  for(const id of ['jev']){assert.equal(document.getElementById(id).type,'password');assert.equal(document.getElementById(id).getAttribute('value'),null);}
  assert.match(document.querySelector('#new-rule').getAttribute('placeholder'),/text/i);
 });
+test('key setup explains transmission and links to the public privacy policy',async()=>{
+ const {document}=parseHTML(await readFile('src/settings.html','utf8'));
+ const credentials=document.querySelector('#credentials');
+ assert.match(credentials.textContent,/enabled.*rules.*sent.*TypeSafe/s);
+ assert.match(credentials.textContent,/charges/i);
+ assert.equal(credentials.querySelector('a').getAttribute('href'),'https://github.com/komagata/nagi-feed/blob/main/PRIVACY.md');
+});

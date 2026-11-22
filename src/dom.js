@@ -26,7 +26,8 @@ export function extractPost(article){
  const id=href.match(/\/status\/(\d+)/)?.[1]||'';
  const nodes=textNodes(article);const segments=nodes.map((n,i)=>({id:String(i),text:readableText(n),lang:n.getAttribute('lang')||'',source:n.closest('[data-testid="quoteTweet"],div[role="link"]')||i>0?`quote:${i}`:'body',official:officialFor(n)}));
  const warnings=[];
- const promoted=[...article.querySelectorAll('span')].some(n=>{
+ // Card ads carry no header label, only an "Ad from example.com" link or button under the card.
+ const promoted=[...article.querySelectorAll('a,button')].some(n=>!n.children.length&&/^(?:Ad from \S+|\S+\s*からの広告)$/.test(n.textContent.trim())&&!n.closest('[data-testid="tweetText"],[data-testid="User-Name"],[data-testid="quoteTweet"],div[role="link"],.cf-ui'))||[...article.querySelectorAll('span')].some(n=>{
   if(n.closest('[data-testid="tweetText"],[data-testid="User-Name"],[data-testid="quoteTweet"],div[role="link"],.cf-ui')||!/^(広告|プロモーション|Ad|Promoted|Sponsored)$/.test(n.textContent.trim()))return false;
   const header=n.parentElement?.parentElement;
   return !!header?.querySelector('[data-testid="caret"]')&&!header.querySelector('[data-testid="tweetText"]');

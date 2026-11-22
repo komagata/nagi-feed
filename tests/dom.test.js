@@ -42,6 +42,9 @@ test('automatically expands long text before extraction',async()=>{
 test('advertisement badge is metadata, not a word inside ordinary post text',()=>{
  assert.equal(dom.extractPost(article('<div><div><span>広告</span></div><button data-testid="caret"></button></div><div data-testid="tweetText">製品紹介</div>')).promoted,true);
  assert.equal(dom.extractPost(article('<div data-testid="tweetText"><span>広告</span>についての話</div>')).promoted,false);
+ for(const label of ['<a role="link" href="https://example.com">example.com からの広告</a>','<a role="link" href="https://example.com">Ad from example.com</a>','<button role="button">Ad from example.com</button>'])assert.equal(dom.extractPost(article(`<div><button data-testid="caret"></button></div><div data-testid="tweetText">製品紹介</div><div data-testid="card.spineClickTarget"><div><div>${label}</div></div></div>`)).promoted,true);
+ assert.equal(dom.extractPost(article('<div data-testid="tweetText"><a href="#">Ad from example.com</a></div>')).promoted,false);
+ assert.equal(dom.extractPost(article('<div data-testid="tweetText">本文</div><div role="link"><a href="#">Ad from example.com</a></div>')).promoted,false);
 });
 
 test('media-only posts including unloaded videos do not produce extraction warnings',()=>{
